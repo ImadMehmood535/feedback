@@ -158,13 +158,14 @@ body {
 
   .flexContainer{
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
     gap: 40px;
-    justify-content: start;
+    width: 50%;
+    justify-content: center;
   }
 
   @media only screen and (max-width: 600px) {
     .flexContainer{
-     flex-direction: column;
+      width: 100%;
     }
 }

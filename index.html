@@ -430,17 +430,44 @@
           if (!validateForm()) {
             return;
           }
-          Toastify({
-            text: "Form submitted successfully!",
-            duration: 3000,
-            position: "center",
-          }).showToast();
 
           var formData = new FormData(this);
+          var jsonData = {};
+
           formData.forEach(function (value, key) {
-            console.log(key + ": " + value);
+            jsonData[key] = value;
           });
-          this.reset();
+
+          fetch("http://localhost:4000/api/form", {
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: JSON.stringify(jsonData),
+          })
+            .then((response) => {
+              if (response.ok) {
+                Toastify({
+                  text: "Form submitted successfully!",
+                  duration: 3000,
+                  position: "center",
+                }).showToast();
+
+                this.reset();
+              } else {
+                Toastify({
+                  text: "Form submitted successfully!",
+                  duration: 3000,
+                  position: "center",
+                  style: {
+                    background: "red",
+                  },
+                }).showToast();
+              }
+            })
+            .catch((error) => {
+              console.error("Error:", error);
+            });
         });
 
       function validateForm() {
