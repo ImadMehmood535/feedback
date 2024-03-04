@@ -67,6 +67,8 @@ body {
     border: 2px solid transparent;
     width: 100%;
     resize: vertical;  
+    min-height: 120px; 
+
     padding-left: 0.8em;
     outline: none;
     overflow: hidden;
