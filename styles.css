@@ -3,18 +3,12 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 10% 0;
-    /* height: 100vh; */
     display: flex;
     justify-content: center;
     align-items: center;
     background: linear-gradient(to right, #60a5fa, #c084fc);
   }
-  /* @media only screen and (max-width: 768px) {
-    body {
-        padding: 300% 0;
-    }
-}
-    */
+ 
   
   .container {
     max-width: 700px;
