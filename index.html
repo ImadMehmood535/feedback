@@ -120,7 +120,7 @@
               class="error"
               style="display: none; color: red; text-align: start"
             >
-              Please select this fieldg.
+              Please select this field.
             </p>
           </div>
           <div class="input-group">
@@ -400,6 +400,7 @@
           formData.forEach(function (value, key) {
             console.log(key + ": " + value);
           });
+          this.reset();
          });
 
       function validateForm() {
