@@ -155,3 +155,16 @@ body {
     background-color: #2563EB;
   }
   
+
+  .flexContainer{
+    display: flex;
+    flex-direction: row;
+    gap: 40px;
+    justify-content: start;
+  }
+
+  @media only screen and (max-width: 600px) {
+    .flexContainer{
+     flex-direction: column;
+    }
+}

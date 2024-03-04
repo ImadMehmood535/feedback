@@ -21,6 +21,43 @@
         >
           <h1 class="title">Feedback Form</h1>
 
+          <div class="flexContainer">
+            <div>
+              <label class="label">Name : </label>
+              <input
+                type="text"
+                id="name"
+                name="name"
+                class="input"
+                placeholder="Enter your Name"
+              />
+              <p
+                id="nameError"
+                class="error"
+                style="display: none; color: red; text-align: start"
+              >
+                Please Enter your name.
+              </p>
+            </div>
+            <div>
+              <label class="label">Email : </label>
+              <input
+                type="email"
+                id="email"
+                name="email"
+                class="input"
+                placeholder="Enter your email"
+              />
+              <p
+                id="emailError"
+                class="error"
+                style="display: none; color: red; text-align: start"
+              >
+                Please enter your email.
+              </p>
+            </div>
+          </div>
+
           <!-- Radio Fields -->
           <div class="input-group">
             <label class="label"
@@ -360,7 +397,10 @@
 
           <!-- Textarea Field -->
           <div class="input-group">
-            <label class="label">Are there any areas you think we should focus on to enhance our performance in the coming months?</label>
+            <label class="label"
+              >Are there any areas you think we should focus on to enhance our
+              performance in the coming months?</label
+            >
             <textarea
               id="message"
               name="message"
@@ -392,9 +432,8 @@
           }
           Toastify({
             text: "Form submitted successfully!",
-            duration: 3000, 
-            position: "center"
-  
+            duration: 3000,
+            position: "center",
           }).showToast();
 
           var formData = new FormData(this);
@@ -402,11 +441,27 @@
             console.log(key + ": " + value);
           });
           this.reset();
-         });
+        });
 
       function validateForm() {
         hideErrors();
         var isValid = true;
+
+        var nameInput = document.getElementById("name");
+        var nameError = document.getElementById("nameError");
+        if (nameInput.value.trim() === "") {
+          nameError.style.display = "block";
+          isValid = false;
+        }
+
+        // Validate Email
+        var emailInput = document.getElementById("email");
+        var emailError = document.getElementById("emailError");
+        var emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(emailInput.value.trim())) {
+          emailError.style.display = "block";
+          isValid = false;
+        }
 
         var radioGroups = document.getElementsByClassName("radio-group");
         for (var i = 0; i < radioGroups.length; i++) {
