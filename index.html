@@ -1,0 +1,444 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Feedback Form</title>
+    <link rel="stylesheet" href="styles.css" />
+    <link
+      href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+      rel="stylesheet"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <div class="content">
+        <form
+          id="feedbackForm"
+          class="form"
+          action="http://localhost:3001/submit-feedback"
+          method="POST"
+        >
+          <h1 class="title">Feedback Form</h1>
+
+          <!-- Radio Fields -->
+          <div class="input-group">
+            <label class="label"
+              >1. On a scale of 1-5, how satisfied are you with the
+              communication and responsiveness of our team?</label
+            >
+            <div class="radio-group">
+              <input
+                type="radio"
+                id="satisfactionRating1"
+                name="satisfactionRating"
+                value="1"
+              />
+              <label for="satisfactionRating1">Poor</label>
+              <input
+                type="radio"
+                id="satisfactionRating2"
+                name="satisfactionRating"
+                value="2"
+              />
+              <label for="satisfactionRating2">Average</label>
+              <input
+                type="radio"
+                id="satisfactionRating3"
+                name="satisfactionRating"
+                value="3"
+              />
+              <label for="satisfactionRating3">Good</label>
+              <input
+                type="radio"
+                id="satisfactionRating4"
+                name="satisfactionRating"
+                value="4"
+              />
+              <label for="satisfactionRating4">Very Good</label>
+              <input
+                type="radio"
+                id="satisfactionRating5"
+                name="satisfactionRating"
+                value="5"
+              />
+              <label for="satisfactionRating5">Excellent</label>
+            </div>
+            <p
+              id="satisfactionError"
+              class="error"
+              style="display: none; color: red; text-align: start"
+            >
+              Please select this field.
+            </p>
+          </div>
+
+          <div class="input-group">
+            <label class="label"
+              >2- How would you rate the overall effectiveness of the social
+              media campaigns we executed this month?</label
+            >
+            <div class="radio-group">
+              <input
+                type="radio"
+                id="effectiveness"
+                name="effectiveness"
+                value="1"
+              />
+              <label for="effectiveness">Poor</label>
+              <input
+                type="radio"
+                id="effectiveness2"
+                name="effectiveness"
+                value="2"
+              />
+              <label for="effectiveness2">Average</label>
+              <input
+                type="radio"
+                id="effectiveness3"
+                name="effectiveness"
+                value="3"
+              />
+              <label for="effectiveness3">Good</label>
+              <input
+                type="radio"
+                id="effectiveness4"
+                name="effectiveness"
+                value="4"
+              />
+              <label for="effectiveness4">Very Good</label>
+              <input
+                type="radio"
+                id="effectiveness5"
+                name="effectiveness"
+                value="5"
+              />
+              <label for="effectiveness5">Excellent</label>
+            </div>
+            <p
+              id="effectivenessError"
+              class="error"
+              style="display: none; color: red; text-align: start"
+            >
+              Please select this fieldg.
+            </p>
+          </div>
+          <div class="input-group">
+            <label class="label"
+              >3- How satisfied are you with the quality and relevance of the
+              content we produced for your social media channels</label
+            >
+            <div class="radio-group">
+              <input type="radio" id="relevance1" name="relevance" value="1" />
+              <label for="relevance1">Poor</label>
+              <input type="radio" id="relevance2" name="relevance" value="2" />
+              <label for="relevance2">Average</label>
+              <input type="radio" id="relevance3" name="relevance" value="3" />
+              <label for="relevance3">Good</label>
+              <input type="radio" id="relevance4" name="relevance" value="4" />
+              <label for="relevance4">Very Good</label>
+              <input type="radio" id="relevance5" name="relevance" value="5" />
+              <label for="relevance5">Excellent</label>
+            </div>
+            <p
+              id="relevanceError"
+              class="error"
+              style="display: none; color: red; text-align: start"
+            >
+              Please select this field
+            </p>
+          </div>
+          <div class="input-group">
+            <label class="label"
+              >4- How do you feel about the level of engagement and interaction
+              from your target audience on social media this month?</label
+            >
+            <div class="radio-group">
+              <input type="radio" id="quality1" name="quality" value="1" />
+              <label for="quality1">Poor</label>
+              <input type="radio" id="quality2" name="quality" value="2" />
+              <label for="quality2">Average</label>
+              <input type="radio" id="quality3" name="quality" value="3" />
+              <label for="quality3">Good</label>
+              <input type="radio" id="quality4" name="quality" value="4" />
+              <label for="quality4">Very Good</label>
+              <input type="radio" id="quality5" name="quality" value="5" />
+              <label for="quality5">Excellent</label>
+            </div>
+            <p
+              id="qualityError"
+              class="error"
+              style="display: none; color: red; text-align: start"
+            >
+              Please selecthis field
+            </p>
+          </div>
+          <div class="input-group">
+            <label class="label"
+              >5- How satisfied are you with the analytics and performance
+              reports provided to you?</label
+            >
+            <div class="radio-group">
+              <input type="radio" id="analytics1" name="analytics" value="1" />
+              <label for="analytics1">Poor</label>
+              <input type="radio" id="analytics2" name="analytics" value="2" />
+              <label for="analytics2">Average</label>
+              <input type="radio" id="analytics3" name="analytics" value="3" />
+              <label for="analytics3">Good</label>
+              <input type="radio" id="analytics4" name="analytics" value="4" />
+              <label for="analytics4">Very Good</label>
+              <input type="radio" id="analytics5" name="analytics" value="5" />
+              <label for="analytics5">Excellent</label>
+            </div>
+            <p
+              id="analyticsError"
+              class="error"
+              style="display: none; color: red; text-align: start"
+            >
+              Please select this field
+            </p>
+          </div>
+          <div class="input-group">
+            <label class="label"
+              >6- How would you rate the efficiency and effectiveness of our ad
+              spend in driving results for your social media goals?</label
+            >
+            <div class="radio-group">
+              <input
+                type="radio"
+                id="efficiency1"
+                name="efficiency"
+                value="1"
+              />
+              <label for="efficiency1">Poor</label>
+              <input
+                type="radio"
+                id="efficiency2"
+                name="efficiency"
+                value="2"
+              />
+              <label for="efficiency2">Average</label>
+              <input
+                type="radio"
+                id="efficiency3"
+                name="efficiency"
+                value="3"
+              />
+              <label for="efficiency3">Good</label>
+              <input
+                type="radio"
+                id="efficiency4"
+                name="efficiency"
+                value="4"
+              />
+              <label for="efficiency4">Very Good</label>
+              <input
+                type="radio"
+                id="efficiency5"
+                name="efficiency"
+                value="5"
+              />
+              <label for="efficiency5">Excellent</label>
+            </div>
+            <p
+              id="efficiencyError"
+              class="error"
+              style="display: none; color: red; text-align: start"
+            >
+              Please select this field
+            </p>
+          </div>
+          <div class="input-group">
+            <label class="label"
+              >7- On a scale of 1-5, how well do you think our strategy aligns
+              with your overall business goals?</label
+            >
+            <div class="radio-group">
+              <input type="radio" id="strategy1" name="strategy" value="1" />
+              <label for="strategy1">Poor</label>
+              <input type="radio" id="strategy2" name="strategy" value="2" />
+              <label for="strategy2">Average</label>
+              <input type="radio" id="strategy3" name="strategy" value="3" />
+              <label for="strategy3">Good</label>
+              <input type="radio" id="strategy4" name="strategy" value="4" />
+              <label for="strategy4">Very Good</label>
+              <input type="radio" id="strategy5" name="strategy" value="5" />
+              <label for="strategy5">Excellent</label>
+            </div>
+            <p
+              id="strategyError"
+              class="error"
+              style="display: none; color: red; text-align: start"
+            >
+              Please selectthis field
+            </p>
+          </div>
+          <div class="input-group">
+            <label class="label"
+              >8- How satisfied are you with the level of customer service and
+              support provided by our team?</label
+            >
+            <div class="radio-group">
+              <input type="radio" id="service1" name="service" value="1" />
+              <label for="service1">Poor</label>
+              <input type="radio" id="service2" name="service" value="2" />
+              <label for="service2">Average</label>
+              <input type="radio" id="service3" name="service" value="3" />
+              <label for="service3">Good</label>
+              <input type="radio" id="service4" name="service" value="4" />
+              <label for="service4">Very Good</label>
+              <input type="radio" id="service5" name="service" value="5" />
+              <label for="service5">Excellent</label>
+            </div>
+            <p
+              id="serviceError"
+              class="error"
+              style="display: none; color: red; text-align: start"
+            >
+              Please selecthis field
+            </p>
+          </div>
+
+          <!-- Repeat for other radio questions -->
+
+          <!-- Input Fields -->
+          <div class="input-group">
+            <label class="label"
+              >9. Are there any specific types of content you would like to see
+              more or less of in the future?</label
+            >
+            <input
+              type="text"
+              id="specificContent"
+              name="specificContent"
+              class="input"
+              placeholder="Enter your answer here"
+            />
+          </div>
+
+          <div class="input-group">
+            <label class="label"
+              >10. Is there any additional data or specific insights you would
+              like to see in our reports?</label
+            >
+            <input
+              type="text"
+              id="additionalData"
+              name="additionalData"
+              class="input"
+              placeholder="Enter your answer here"
+            />
+          </div>
+          <div class="input-group">
+            <label class="label"
+              >11- Are there any specific competitors or metrics you would like
+              us to focus on more
+            </label>
+            <input
+              type="text"
+              id="competitors"
+              name="competitors"
+              class="input"
+              placeholder="Enter your answer here"
+            />
+          </div>
+          <div class="input-group">
+            <label class="label"
+              >12- Is there anything we can do to improve our support and
+              service?
+            </label>
+            <input
+              type="text"
+              id="support"
+              name="support"
+              class="input"
+              placeholder="Enter your answer here"
+            />
+          </div>
+
+          <!-- Repeat for other input questions -->
+
+          <!-- Textarea Field -->
+          <div class="input-group">
+            <label class="label">Any additional comments or suggestions?</label>
+            <textarea
+              id="message"
+              name="message"
+              rows="6"
+              class="input"
+              placeholder="Enter your comments or suggestions here"
+            ></textarea>
+            <p
+              id="messageError"
+              class="error"
+              style="display: none; color: red; text-align: start"
+            >
+              This field is required.
+            </p>
+          </div>
+
+          <button type="submit" class="submit-button">Submit</button>
+        </form>
+      </div>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+    <script>
+      document
+        .getElementById("feedbackForm")
+        .addEventListener("submit", function (event) {
+          event.preventDefault();
+          if (!validateForm()) {
+            return;
+          }
+          Toastify({
+            text: "Form submitted successfully!",
+            duration: 3000, 
+  
+          }).showToast();
+
+          var formData = new FormData(this);
+          formData.forEach(function (value, key) {
+            console.log(key + ": " + value);
+          });
+         });
+
+      function validateForm() {
+        hideErrors();
+        var isValid = true;
+
+        var radioGroups = document.getElementsByClassName("radio-group");
+        for (var i = 0; i < radioGroups.length; i++) {
+          var radioButtons = radioGroups[i].getElementsByTagName("input");
+          var checked = false;
+          for (var j = 0; j < radioButtons.length; j++) {
+            if (radioButtons[j].checked) {
+              checked = true;
+              break;
+            }
+          }
+          if (!checked) {
+            var errorMessage =
+              radioGroups[i].parentNode.querySelector(".error");
+            errorMessage.style.display = "block";
+            isValid = false;
+          }
+        }
+
+        var message = document.getElementById("message").value.trim();
+        if (message === "") {
+          document.getElementById("messageError").style.display = "block";
+          isValid = false;
+        }
+
+        return isValid;
+      }
+
+      function hideErrors() {
+        var errors = document.getElementsByClassName("error");
+        for (var i = 0; i < errors.length; i++) {
+          errors[i].style.display = "none";
+        }
+      }
+    </script>
+  </body>
+</html>
